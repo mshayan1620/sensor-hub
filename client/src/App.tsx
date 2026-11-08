@@ -3,6 +3,7 @@ import { useSensors } from './hooks/useSensors';
 import { Header } from './components/Header';
 import { SensorCard } from './components/SensorCard';
 import { SensorChart } from './components/SensorChart';
+import { AlertBanner } from './components/AlertBanner';
 
 export function App() {
   const { sensors, connected } = useSensors();
@@ -27,6 +28,8 @@ export function App() {
           </div>
         ) : (
           <>
+            <AlertBanner sensors={sensors} />
+
             {/* Sensor grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
               {sensors.map((sensor) => (
